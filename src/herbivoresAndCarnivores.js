@@ -31,11 +31,7 @@ class Carnivore extends Animal {
     if (pray instanceof Herbivore && pray.hidden !== true) {
       pray.health -= 50;
 
-      if (pray.health <= 0) {
-        const ind = Animal.alive.indexOf(pray);
-
-        Animal.alive.splice(ind, 1);
-      }
+      Animal.alive = Animal.alive.filter((el) => el.health > 0);
     }
   }
 }
